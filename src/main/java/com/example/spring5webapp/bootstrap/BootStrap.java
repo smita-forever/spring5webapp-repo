@@ -1,4 +1,4 @@
-package com.example.spring5webapp;
+package com.example.spring5webapp.bootstrap;
 
 import com.example.spring5webapp.model.Author;
 import com.example.spring5webapp.model.Book;
@@ -25,7 +25,9 @@ public class BootStrap implements ApplicationListener<ContextRefreshedEvent> {
     }
 
     private void initData(){
-        Publisher publisher1 = new Publisher("publisher1", "address1");
+        Publisher publisher1 = new Publisher();
+        publisher1.setName("publisher1");
+        publisher1.setAddress("address1");
         publisherRepository.save(publisher1);
 
         Author author1 = new Author("fname1", "lname1");
