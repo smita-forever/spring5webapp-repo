@@ -26,23 +26,25 @@ public class BootStrap implements ApplicationListener<ContextRefreshedEvent> {
 
     private void initData(){
         Publisher publisher1 = new Publisher();
-        publisher1.setName("publisher1");
+        publisher1.setName("Oreilly");
         publisher1.setAddress("address1");
         publisherRepository.save(publisher1);
 
-        Author author1 = new Author("fname1", "lname1");
+        Author author_1 = new Author("Kathy", "Sierra");
+        Author author_2 = new Author("Bert", "Bates");
 
-        Book book1 = new Book("Book Title1", "isbn1",publisher1);
+        Book book1 = new Book("Head First Java", "isbn1",publisher1);
 
-        author1.getBooks().add(book1);
-        book1.getAuthors().add(author1);
+        author_1.getBooks().add(book1);
+        book1.getAuthors().add(author_1);
+        book1.getAuthors().add(author_2);
 
-
-        authorRepository.save(author1);
+        authorRepository.save(author_1);
+        authorRepository.save(author_2);
         bookRepository.save(book1);
 
-        Author author2 = new Author("fname2", "lname2");
-        Book book2 = new Book("Book Title2", "isbn2",publisher1);
+        Author author2 = new Author("Alan", "Mycroft");
+        Book book2 = new Book("Java 8 in Action", "isbn2",publisher1);
 
         book2.getAuthors().add(author2);
         author2.getBooks().add(book2);
